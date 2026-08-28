@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PROMPTLY — AI Toolkits, Packs, Agents & Workflows</title>
+<meta name="description" content="PROMPTLY — practical AI toolkits, prompt packs, agents and workflows.">
+<style>
+:root{--ink:#111;--muted:#6d6d6d;--line:#e7e7e7;--paper:#fff;--accent:#ff4f5e;--soft:#fff1f2;--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.5}
+a{color:inherit;text-decoration:none}.wrap{max-width:var(--max);margin:auto;padding:0 24px}
+.announce{background:#111;color:#fff;text-align:center;padding:9px 20px;font-size:13px}.announce span{color:#fff}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.logo{font-weight:900;letter-spacing:-1px;font-size:23px}.logo i{display:inline-block;width:8px;height:8px;background:var(--accent);border-radius:50%;margin-left:3px}
+.navlinks{display:flex;gap:25px;font-size:14px}.navlinks a:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid #111;border-radius:999px;padding:13px 20px;font-weight:700;font-size:14px;transition:.2s;cursor:pointer}.btn.dark{background:#111;color:#fff}.btn.dark:hover{transform:translateY(-2px)}.btn.accent{background:var(--accent);border-color:var(--accent);color:#fff}.btn.ghost:hover{background:#111;color:#fff}
+.hero{padding:92px 0 76px;display:grid;grid-template-columns:1.1fr .9fr;gap:65px;align-items:center}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:800;margin-bottom:20px}.eyebrow b{color:var(--accent)}
+h1{font-size:clamp(48px,6vw,78px);line-height:.98;letter-spacing:-4px;margin:0 0 25px;max-width:760px}h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:19px;color:#555;max-width:640px;margin-bottom:30px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-card{border:1px solid var(--line);border-radius:28px;padding:28px;background:#fafafa;box-shadow:0 20px 60px rgba(0,0,0,.06)}.terminal{background:#111;color:#fff;border-radius:20px;padding:22px;font-family:ui-monospace,SFMono-Regular,monospace;font-size:13px}.dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:#777;margin-right:6px}.terminal .pink{color:#ff7380}.terminal .gray{color:#aaa}
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}.trustgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.trustitem{display:flex;gap:12px;align-items:center;font-size:14px;font-weight:650}.icon{width:38px;height:38px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;font-size:18px;background:#fff}
+section{padding:88px 0}.sectionhead{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:35px}.sectionhead h2{font-size:42px;letter-spacing:-2px;margin:0}.sectionhead p{max-width:480px;color:var(--muted);margin:0}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}.filter{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 15px;font-size:13px;cursor:pointer}.filter.active,.filter:hover{background:#111;color:#fff;border-color:#111}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.product{border:1px solid var(--line);border-radius:22px;padding:25px;min-height:310px;display:flex;flex-direction:column;transition:.2s}.product:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.07)}.producttop{display:flex;justify-content:space-between;gap:15px}.tag{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;font-weight:800;color:var(--accent)}.product h3{font-size:24px;letter-spacing:-.7px;margin:14px 0 8px}.product p{color:#666;margin:0 0 18px}.bullets{display:grid;gap:7px;font-size:13px;color:#444;margin-bottom:24px}.bullets div:before{content:"✓";font-weight:900;margin-right:8px}.productbottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:15px}.price{font-size:18px;font-weight:850}.mini{font-size:11px;color:#999}
+.why{background:#111;color:#fff}.why .sectionhead p{color:#aaa}.whygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.whycard{border:1px solid #2d2d2d;border-radius:20px;padding:28px}.whycard .icon{background:#181818;border-color:#333;color:#fff}.whycard h3{font-size:20px;margin:20px 0 8px}.whycard p{color:#aaa;font-size:14px;margin:0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.step{border-top:2px solid #111;padding-top:20px}.num{font-size:12px;font-weight:900;color:var(--accent)}.step h3{margin:10px 0 5px}.step p{color:#666;font-size:14px}
+.placeholder{border:1px dashed #bbb;border-radius:22px;padding:38px;text-align:center;color:#777;background:#fafafa}.placeholder strong{display:block;color:#222;margin-bottom:8px}
+.personas{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.persona{min-height:170px;border:1px dashed #bbb;border-radius:20px;padding:22px}.persona small{color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.quote{min-height:210px;border:1px dashed #bbb;border-radius:20px;padding:25px;display:flex;flex-direction:column;justify-content:space-between}.quote p{color:#777;font-size:15px}.quote .who{font-size:12px;font-weight:800}
+.bundle{background:var(--soft)}.bundlebox{border:1px solid #ffd4d8;border-radius:28px;padding:42px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px}.bundlebox h2{font-size:42px;letter-spacing:-2px;margin:0 0 10px}.bundlebox p{color:#666;max-width:650px}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:12px}.faq details{border:1px solid var(--line);border-radius:16px;padding:18px}.faq summary{font-weight:750;cursor:pointer}.faq p{color:#666;font-size:14px}
+.final{padding:95px 0;text-align:center}.final h2{font-size:54px;letter-spacing:-3px;margin:0 auto 16px;max-width:760px}.final p{color:#666;max-width:600px;margin:0 auto 28px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:#777;font-size:12px;display:flex;justify-content:space-between;gap:20px}
+@media(max-width:800px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding:65px 0}.hero-card{order:2}.trustgrid,.whygrid,.steps,.personas,.testimonials{grid-template-columns:1fr 1fr}.products,.faq{grid-template-columns:1fr}.bundlebox{grid-template-columns:1fr}.sectionhead{display:block}.sectionhead p{margin-top:12px}h1{letter-spacing:-2.5px}.final h2{font-size:40px}}
+@media(max-width:520px){.wrap{padding:0 18px}.trustgrid,.whygrid,.steps,.personas,.testimonials{grid-template-columns:1fr}.nav-cta{display:none}.hero{gap:35px}.hero-card{padding:16px}.products{gap:12px}.product{padding:21px}}
+</style>
+</head>
+<body>
+<div class="announce"><span>✦</span> EDITABLE ANNOUNCEMENT — replace this line with your launch message</div>
+<div class="wrap">
+<nav>
+<a class="logo" href="#">PROMPTLY<i></i></a>
+<div class="navlinks"><a href="#products">Products</a><a href="#how">How it works</a><a href="#faq">FAQ</a></div>
+<a class="btn dark nav-cta" href="#products">Explore toolkits →</a>
+</nav>
+
+<header class="hero">
+<div>
+<div class="eyebrow">AI tools, made practical <b>●</b></div>
+<h1>Stop collecting AI tools.<br><em>Start using them.</em></h1>
+<p class="lead">Prompt packs, toolkits, agents and workflows designed to help you turn AI into a practical working system.</p>
+<div class="hero-actions"><a class="btn accent" href="#products">Find your toolkit →</a><a class="btn ghost" href="#how">See how it works</a></div>
+</div>
+<div class="hero-card">
+<div class="terminal"><span class="dot"></span><span class="dot"></span><span class="dot"></span><br><br><span class="gray">// PROMPTLY SYSTEM</span><br><br><span class="pink">01</span> Choose the right tool<br><span class="pink">02</span> Apply the right prompt<br><span class="pink">03</span> Run the workflow<br><span class="pink">04</span> Refine & repeat<br><br><span class="gray">→ Less hunting. More doing.</span></div>
+</div>
+</header>
+</div>
+
+<div class="trust"><div class="wrap trustgrid">
+<div class="trustitem"><span class="icon">⌁</span>Hours of testing</div>
+<div class="trustitem"><span class="icon">✦</span>Practical prompts</div>
+<div class="trustitem"><span class="icon">◎</span>Tools + agents</div>
+<div class="trustitem"><span class="icon">↗</span>Workflows included</div>
+</div></div>
+
+<section id="products"><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">The collection</div><h2>Choose your starting point.</h2></div><p>Ten focused digital products. Replace every placeholder with your real offer, price, proof and checkout link.</p></div>
+<div class="filters">
+<button class="filter active" data-filter="all">All</button><button class="filter" data-filter="Prompt Pack">Prompt Packs</button><button class="filter" data-filter="Toolkit">Toolkits</button><button class="filter" data-filter="Agent">Agents</button><button class="filter" data-filter="Workflow">Workflows</button>
+</div>
+<div class="products" id="productGrid"></div>
+</div></section>
+
+<section class="why"><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">Why Promptly</div><h2>Not just prompts.</h2></div><p>A better product is a clearer system: what to use, when to use it, and how the pieces fit together.</p></div>
+<div class="whygrid">
+<div class="whycard"><span class="icon">⌘</span><h3>Right tools</h3><p>Make the tool choice part of the product instead of leaving customers to hunt for it.</p></div>
+<div class="whycard"><span class="icon">✦</span><h3>Effective prompts</h3><p>Give people practical starting points they can adapt to their own context.</p></div>
+<div class="whycard"><span class="icon">↯</span><h3>Agents + workflows</h3><p>Go beyond one-off prompts with repeatable systems that connect tasks together.</p></div>
+</div>
+</div></section>
+
+<section id="how"><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">Simple by design</div><h2>From setup to system.</h2></div><p>Keep the experience clear. The customer should know what they bought and what to do next.</p></div>
+<div class="steps">
+<div class="step"><div class="num">01 / CHOOSE</div><h3>Pick your use case</h3><p>Start with the problem or workflow you want to improve.</p></div>
+<div class="step"><div class="num">02 / SET UP</div><h3>Follow the guide</h3><p>Use the included prompts, tools and setup instructions.</p></div>
+<div class="step"><div class="num">03 / RUN</div><h3>Put it to work</h3><p>Apply, adapt and refine the system for your own needs.</p></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">Who it's for</div><h2>Built for your personas.</h2></div></div>
+<div class="personas">
+<div class="persona"><small>Persona 01</small><h3>[Add persona]</h3><p>[Add their situation, need or job-to-be-done]</p></div>
+<div class="persona"><small>Persona 02</small><h3>[Add persona]</h3><p>[Add their situation, need or job-to-be-done]</p></div>
+<div class="persona"><small>Persona 03</small><h3>[Add persona]</h3><p>[Add their situation, need or job-to-be-done]</p></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">Social proof</div><h2>What customers say.</h2></div><p>Replace these placeholders with real customer testimonials once you have permission to publish them.</p></div>
+<div class="testimonials">
+<div class="quote"><p>“[Insert verified customer quote here.]”</p><div class="who">[Name] · [Role / Company]</div></div>
+<div class="quote"><p>“[Insert verified customer quote here.]”</p><div class="who">[Name] · [Role / Company]</div></div>
+<div class="quote"><p>“[Insert verified customer quote here.]”</p><div class="who">[Name] · [Role / Company]</div></div>
+</div>
+</div></section>
+
+<section class="bundle"><div class="wrap"><div class="bundlebox">
+<div><div class="eyebrow">The complete system</div><h2>PROMPTLY ALL-ACCESS</h2><p>[Replace with your bundle description.] Include your 10 products, future updates, bonuses or other real inclusions here. Do not add claims that cannot be substantiated.</p></div>
+<div><div class="price" style="font-size:30px;margin-bottom:14px">[PRICE]</div><a class="btn accent" href="#">Get the complete pack →</a></div>
+</div></div></section>
+
+<section id="faq"><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">Questions</div><h2>Before you buy.</h2></div></div>
+<div class="faq">
+<details open><summary>What is included?</summary><p>Each product card lists editable “What you get” bullets. Replace the placeholders with the exact files, guides, prompts, agents or workflows included.</p></details>
+<details><summary>Are these prompts, tools or agents?</summary><p>PROMPTLY can offer all four: prompt packs, toolkits, agents and workflows. Each product is labelled by type.</p></details>
+<details><summary>How do I access my purchase?</summary><p>[Add your actual delivery/access process here.]</p></details>
+<details><summary>Can I get help setting things up?</summary><p>[Add your real support/setup policy here.]</p></details>
+</div>
+</div></section>
+
+<section class="final"><div class="wrap">
+<div class="eyebrow">Ready when you are</div><h2>Find the AI system that fits the work.</h2><p>Choose one focused product or start with the complete collection. Replace this copy with your final offer positioning.</p><a class="btn accent" href="#products">Explore PROMPTLY →</a>
+</div></section>
+
+<div class="wrap"><footer><div>© 2026 PROMPTLY. All rights reserved.</div><div>Privacy · Terms · Contact</div></footer></div>
+
+<script>
+const products=[
+["01","Prompt Pack","[Product name]","A focused collection of prompts for one specific job-to-be-done.","[Prompt library]","[Quick-start guide]","[Examples / templates]","[PRICE]"],
+["02","Prompt Pack","[Product name]","A practical prompt system you can adapt to your workflow.","[Prompt library]","[Use-case guide]","[Reference sheet]","[PRICE]"],
+["03","Toolkit","[Product name]","A curated toolkit combining prompts, tools and practical instructions.","[Tool recommendations]","[Prompts]","[Setup guide]","[PRICE]"],
+["04","Toolkit","[Product name]","A ready-to-customise AI toolkit for a defined business task.","[Tools]","[Templates]","[Implementation notes]","[PRICE]"],
+["05","Agent","[Product name]","An AI-agent concept designed around a repeatable task.","[Agent setup]","[Instructions]","[Example inputs]","[PRICE]"],
+["06","Agent","[Product name]","A guided agent workflow for a specific use case.","[Agent]","[Prompt logic]","[Setup checklist]","[PRICE]"],
+["07","Workflow","[Product name]","A step-by-step AI workflow connecting tools and tasks.","[Workflow map]","[Prompts]","[Tool stack]","[PRICE]"],
+["08","Workflow","[Product name]","A repeatable system for turning a recurring task into a workflow.","[Workflow]","[Templates]","[How-to guide]","[PRICE]"],
+["09","Toolkit","[Product name]","A specialised pack for a clearly defined outcome or process.","[Toolkit assets]","[Prompts]","[Quick-start guide]","[PRICE]"],
+["10","Agent","[Product name]","A focused AI assistant concept built for one practical job.","[Agent setup]","[Instructions]","[Examples]","[PRICE]"]
+];
+const icons=["✦","⌁","◎","↗","⌘","↯","◌","◇","✳","→"];
+const grid=document.getElementById("productGrid");
+function render(filter="all"){
+grid.innerHTML=products.filter(p=>filter==="all"||p[1]===filter).map((p,i)=>`
+<article class="product">
+<div class="producttop"><span class="tag">${p[1]}</span><span class="icon">${icons[i]}</span></div>
+<h3>${p[2]}</h3><p>${p[3]}</p>
+<div class="bullets"><div>${p[4]}</div><div>${p[5]}</div><div>${p[6]}</div></div>
+<div class="productbottom"><span class="price">${p[7]}</span><a class="btn dark" href="#">Get it →</a></div>
+</article>`).join("");
+}
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");render(b.dataset.filter)}));
+render();
+</script>
+</body>
+</html>
